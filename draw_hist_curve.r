@@ -1,0 +1,12 @@
+qt <- read.table("nosim.uni.ODF_value.bed", header = T, sep = "\t")                                                                                                                                                    
+ODF <- c()                                                                                                                                                                                                             
+for(i in 1:nrow(qt)){                                                                                                                                                                                                  
+     ODF <- c(ODF, as.numeric(qt[i,]))                                                                                                                                                                                 
+}                                                                                                                                                                                                                      
+write.table(ODF, "ODF_vector.bed", row.names = F, col.names = T, sep = "\t", quote = F)                                                                                                                                
+hist(ODF, prob = T, main = "over-dispersion-factor distribution", xlim = c(0,20), breaks = 100)                                                                                                                        
+pdf("ODF_distribution.pdf")                                                                                                                                                                                            
+lines(density(ODF, bw=.5), col = "red", lwd = 2)                                                                                                                                                                       
+temp <- density(ODF)                                                                                                                                                                                                   
+pdf("ODF_distribution2.pdf")                                                                                                                                                                                           
+plot(temp, col = "red", xlim = c(0,20))

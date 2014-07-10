@@ -1,0 +1,5 @@
+a <- 1:10
+b <- 2:11
+c <- 3:12
+data <- data.frame(1 <- a, 2 <- b, 3 <- c)
+boxplot(data, names = c(1,2,3))
